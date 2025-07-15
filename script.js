@@ -8,7 +8,7 @@ class TechStore {
                 category: "laptops",
                 price: 1299.99,
                 originalPrice: 1499.99,
-                image: "/img/laptop1.jpg",
+                image: "img/laptop1.jpg",
                 description: "Laptop gaming de alta performance con procesador Intel i7 y tarjeta gráfica RTX 3060",
                 specs: ["Intel i7-11800H", "16GB RAM", "RTX 3060", "512GB SSD"],
                 discount: 13
@@ -19,7 +19,7 @@ class TechStore {
                 category: "celulares",
                 price: 1099.99,
                 originalPrice: 1199.99,
-                image: "/img/iphone.avif",
+                image: "img/iphone.avif",
                 description: "El último iPhone con cámara pro y chip A16 Bionic",
                 specs: ["A16 Bionic", "128GB", "Cámara 48MP", "Pantalla 6.7\""],
                 discount: 8
@@ -30,7 +30,7 @@ class TechStore {
                 category: "gaming",
                 price: 159.99,
                 originalPrice: 199.99,
-                image: "/img/keyboard.jpg",
+                image: "img/keyboard.jpg",
                 description: "Teclado mecánico para gaming con switches Cherry MX y retroiluminación RGB",
                 specs: ["Cherry MX Blue", "RGB Personalizable", "Anti-ghosting", "USB-C"],
                 discount: 20
@@ -41,7 +41,7 @@ class TechStore {
                 category: "accesorios",
                 price: 89.99,
                 originalPrice: 119.99,
-                image: "/img/headphone.png",
+                image: "img/headphone.png",
                 description: "Auriculares inalámbricos con cancelación de ruido activa",
                 specs: ["Bluetooth 5.0", "30h batería", "Cancelación ruido", "Carga rápida"],
                 discount: 25
@@ -52,7 +52,7 @@ class TechStore {
                 category: "gaming",
                 price: 449.99,
                 originalPrice: 549.99,
-                image: "/img/monitores.png",
+                image: "img/monitores.png",
                 description: "Monitor 4K de 27 pulgadas con 144Hz para gaming profesional",
                 specs: ["4K UHD", "144Hz", "1ms", "HDR400"],
                 discount: 18
@@ -63,7 +63,7 @@ class TechStore {
                 category: "laptops",
                 price: 999.99,
                 originalPrice: 1199.99,
-                image: "/img/macbook.png",
+                image: "img/macbook.png",
                 description: "La nueva MacBook Air con chip M2 y diseño renovado",
                 specs: ["Chip M2", "8GB RAM", "256GB SSD", "13.6\" Liquid Retina"],
                 discount: 17
@@ -74,7 +74,7 @@ class TechStore {
                 category: "celulares",
                 price: 799.99,
                 originalPrice: 899.99,
-                image: "/img/samsung.jpeg",
+                image: "img/samsung.jpeg",
                 description: "Smartphone Android flagship con cámara de 200MP",
                 specs: ["Snapdragon 8 Gen 2", "8GB RAM", "Cámara 200MP", "5000mAh"],
                 discount: 11
@@ -85,7 +85,7 @@ class TechStore {
                 category: "accesorios",
                 price: 39.99,
                 originalPrice: 69.99,
-                image: "/img/mouse.webp",
+                image: "img/mouse.webp",
                 description: "Mouse gaming de precisión con sensor óptico de 25,600 DPI",
                 specs: ["25,600 DPI", "70h batería", "11 botones", "RGB"],
                 discount: 20
