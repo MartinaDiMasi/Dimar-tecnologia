@@ -1,0 +1,27 @@
+{
+  "name": "dimar-tienda",
+  "version": "1.0.0",
+  "description": "Tienda de tecnología DIMAR con registro de usuarios en Excel",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "dev": "nodemon servidor.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "excel",
+    "tienda",
+    "tecnologia"
+  ],
+  "author": "DIMAR",
+  "license": "ISC"
+}

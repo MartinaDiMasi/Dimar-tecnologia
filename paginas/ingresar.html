@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ingresar - DIMAR</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="/paginas/ingresar.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/index.html">
+                <i class="fas fa-laptop me-2"></i>DIMAR
+            </a>
+                    </li>
+        
+    </nav>
+
+  <div class="auth-container">
+    <div class="auth-toggle">
+      <button id="btn-login" class="active">Iniciar Sesión</button>
+      <button id="btn-register">Registrarse</button>
+    </div>
+
+    <!-- Login -->
+    <form id="form-login" class="auth-form active">
+      <div class="mb-3">
+        <label for="loginEmail" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="loginEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="loginPassword" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="loginPassword" required>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Ingresar</button>
+    </form>
+
+    <!-- Registro -->
+    <form id="form-register" class="auth-form">
+      <div class="mb-3">
+        <label for="registerName" class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" id="registerName" required>
+      </div>
+      <div class="mb-3">
+        <label for="registerEmail" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="registerEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="registerPassword" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="registerPassword" required>
+      </div>
+      <button type="submit" class="btn btn-warning w-100">Registrarse</button>
+
+    </form>
+  </div> 
+  <script src="/paginas/ingresar.js"></script>
+
+</body>
+</html>
