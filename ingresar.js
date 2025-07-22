@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formRegister = document.getElementById('form-register');
 
   // URL base del servidor
-  const SERVER_URL = 'https://dimar-tecnologia.onrender.com';
+  const SERVER_URL = 'https://dimar-tecnologia-1.onrender.com';
 
   // Función para mostrar notificaciones
   function mostrarNotificacion(mensaje, tipo = 'info') {
