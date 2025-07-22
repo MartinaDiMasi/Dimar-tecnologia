@@ -52,43 +52,35 @@ function inicializarExcel() {
 }
 
 // Función para agregar usuario al Excel
-function agregarUsuarioExcel(nombre, email) {
+function agregarUsuarioExcel(nombre, email, password) {
     const rutaExcel = path.join(__dirname, 'usuarios.xlsx');
-    
+
     try {
-        // Leer el archivo existente
         const workbook = XLSX.readFile(rutaExcel);
         const nombreHoja = 'Usuarios Registrados';
         const hoja = workbook.Sheets[nombreHoja];
-        
-        // Convertir a array
+
         const datos = XLSX.utils.sheet_to_json(hoja, { header: 1 });
-        
-        // Crear nuevo ID
-        const nuevoID = datos.length; // El length será el próximo ID
-        
-        // Obtener fecha y hora actual
+
+        const nuevoID = datos.length;
         const ahora = new Date();
         const fecha = ahora.toLocaleDateString('es-AR');
         const hora = ahora.toLocaleTimeString('es-AR');
-        
-        // Agregar nueva fila
-        const nuevaFila = [nuevoID, nombre, email, fecha, hora];
+
+        const nuevaFila = [nuevoID, nombre, email, password, fecha, hora];
         datos.push(nuevaFila);
-        
-        // Convertir de vuelta a hoja
+
         const nuevaHoja = XLSX.utils.aoa_to_sheet(datos);
         workbook.Sheets[nombreHoja] = nuevaHoja;
-        
-        // Guardar archivo
+
         XLSX.writeFile(workbook, rutaExcel);
-        
         return { success: true, id: nuevoID };
     } catch (error) {
         console.error('Error al agregar usuario:', error);
         return { success: false, error: error.message };
     }
 }
+
 
 // Función para registrar intento de login
 function registrarIntentoLogin(email, exitoso = false) {
@@ -123,37 +115,46 @@ function registrarIntentoLogin(email, exitoso = false) {
 }
 
 // Función para verificar si el usuario existe
-function verificarUsuario(email) {
+function verificarUsuario(email, password = null) {
     const rutaExcel = path.join(__dirname, 'usuarios.xlsx');
-    
+
     try {
         const workbook = XLSX.readFile(rutaExcel);
         const nombreHoja = 'Usuarios Registrados';
         const hoja = workbook.Sheets[nombreHoja];
-        
+
         const datos = XLSX.utils.sheet_to_json(hoja, { header: 1 });
-        
-        // Buscar el email en los datos (columna 2, índice 2)
+
         for (let i = 1; i < datos.length; i++) {
-            if (datos[i][2] === email) {
+            const fila = datos[i];
+            const filaEmail = fila[2];
+            const filaPassword = fila[3];
+
+            if (filaEmail === email) {
+                // Si se pasa contraseña, verificar que coincida
+                if (password && filaPassword !== password) {
+                    return { existe: false }; // contraseña incorrecta
+                }
+
                 return {
                     existe: true,
                     usuario: {
-                        id: datos[i][0],
-                        nombre: datos[i][1],
-                        email: datos[i][2],
-                        fechaRegistro: datos[i][3]
+                        id: fila[0],
+                        nombre: fila[1],
+                        email: filaEmail,
+                        fechaRegistro: fila[4]
                     }
                 };
             }
         }
-        
+
         return { existe: false };
     } catch (error) {
         console.error('Error al verificar usuario:', error);
         return { existe: false, error: error.message };
     }
 }
+
 
 // Rutas API
 // Registro de usuario
@@ -178,8 +179,7 @@ app.post('/api/registro', (req, res) => {
     }
     
     // Agregar usuario al Excel
-    const resultado = agregarUsuarioExcel(nombre, email);
-    
+    const resultado = agregarUsuarioExcel(nombre, email, password);    
     if (resultado.success) {
         res.json({
             success: true,
@@ -211,8 +211,7 @@ app.post('/api/login', (req, res) => {
     }
     
     // Verificar si el usuario existe
-    const verificacion = verificarUsuario(email);
-    
+    const verificacion = verificarUsuario(email, password);
     if (verificacion.existe) {
         // Registrar intento exitoso
         registrarIntentoLogin(email, true);
